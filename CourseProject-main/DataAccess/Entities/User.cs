@@ -6,8 +6,6 @@ namespace DataAccess.Entities
 {
     public class User : IdentityUser
     {
-        //public int Age { get; set; }
-
         public Guid Id { get; set; }
 
         [MaxLength(50)]
