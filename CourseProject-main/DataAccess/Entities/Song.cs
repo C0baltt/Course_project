@@ -22,7 +22,7 @@ namespace DataAccess.Entities
 
         public Album Album { get; set; }
 
-        public Guid UserID { get; set; }
+        public Guid UserId { get; set; }
 
         public User User { get; set; }
     }

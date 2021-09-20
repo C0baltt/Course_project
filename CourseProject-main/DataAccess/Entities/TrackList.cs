@@ -19,9 +19,9 @@ namespace DataAccess.Entities
         public Song Song { get; set; }
 
         [MaxLength(50)]
-        public string Unique_Combination { get; set; }
+        public string UniqueCombination { get; set; }
 
-        public Guid UserID { get; set; }
+        public Guid UserId { get; set; }
 
         public User User { get; set; }
     }

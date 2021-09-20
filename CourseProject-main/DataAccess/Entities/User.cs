@@ -6,9 +6,7 @@ namespace DataAccess.Entities
 {
     public class User : IdentityUser
     {
-        public Guid Id { get; set; }
-
         [MaxLength(50)]
-        public string Name { get; set; }
+        public override string UserName { get; set; }
     }
 }
