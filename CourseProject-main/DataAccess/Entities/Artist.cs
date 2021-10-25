@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DataAccess.Entities
 {
-    class Artist
+    public class Artist
     {
         public Guid Id { get; set; }
 

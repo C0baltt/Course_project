@@ -24,6 +24,7 @@ namespace WebApp.Extensions
             string connection = configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
             services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>();
+
         }
     }
 }

@@ -8,9 +8,7 @@ using WebApp.Extensions;
 namespace WebApp
 {
     public class Startup
-    {
-
-
+    { 
         public Startup(IConfiguration configuration, IWebHostEnvironment webHostEnvironment)
         {
             Configuration = configuration;

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DataAccess.Entities
 {
-    class Genre
+    public class Genre
     {
         public Guid Id { get; set; }
 

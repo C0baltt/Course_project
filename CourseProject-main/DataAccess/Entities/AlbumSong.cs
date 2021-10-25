@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Entities
 {
-    class AlbumSong
+    public class AlbumSong
     {
         public Guid AlbumId { get; set; }
 
