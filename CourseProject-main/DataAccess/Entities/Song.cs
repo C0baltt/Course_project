@@ -14,8 +14,6 @@ namespace DataAccess.Entities
 
         public Artist Artist { get; set; }
 
-        public Guid GenreId { get; set; }
-
         public Genre Genre { get; set; }
 
         public Guid AlbumId { get; set; }
