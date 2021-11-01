@@ -1,6 +1,4 @@
-﻿using System;
-using DatabaseAccess.Entity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace DatabaseAccess
 {
@@ -11,9 +9,9 @@ namespace DatabaseAccess
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
 
         : base(options)
+
         {
             Database.EnsureCreated();
-
         }
     }
 }
