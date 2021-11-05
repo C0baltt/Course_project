@@ -11,6 +11,13 @@ namespace WebApp.Extensions
 {
     public static class ServiceCollectionExtensions
     {
+        public static void RegisterEntityFramework(this IServiceCollection services, IConfiguration configuration)
+        {
+            string connection = configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>();
+        }
+
         public static void EnableRuntimeCompilation(this IServiceCollection services, IWebHostEnvironment webHostEnvironment)
         {
             if (webHostEnvironment.IsDevelopment())
@@ -19,11 +26,5 @@ namespace WebApp.Extensions
             }
         }
 
-        public static void RegisterEntityFramework(this IServiceCollection services, IConfiguration configuration)
-        {
-            string connection = configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
-            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>();
-        }
     }
 }

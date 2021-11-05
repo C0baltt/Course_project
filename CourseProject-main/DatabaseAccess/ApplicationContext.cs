@@ -2,7 +2,7 @@
 
 namespace DatabaseAccess
 {
-    public class ApplicationContext : DdContext
+    public class ApplicationContext : DbContext
     {
         public DbSet<User> Users { get; set; }
 
