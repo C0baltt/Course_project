@@ -1,12 +1,9 @@
 ﻿using System;
 using DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
-
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+
+
 
 namespace DataAccess
 {
@@ -28,7 +25,6 @@ namespace DataAccess
             DbContextOptions<ApplicationContext> options)
             : base(options)
         {
-            _serviceProvider = serviceProvider;
         }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
@@ -37,22 +33,18 @@ namespace DataAccess
             Database.EnsureCreated();
         }
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
+        //protected override void OnModelCreating(ModelBuilder builder)
+        //{
+        //    base.OnModelCreating(builder);
 
-        }
+        //    builder.Entity<Album>()
+        //        .HasOne(x => x.ArtistId)
+        //        .WithMany(x => x.Album)
+        //        .HasForeignKey(x => x.ArtistId);
 
-        private void CreateTrackList(ModelBuilder builder)
-        {
-            //builder.Entity<Album>()
-            //    .
-
-                //builder.Entity<User>()
-                //.
-
-            //builder.Entity<AlbumSong>()
-            //    .
-        }
+        //    builder.Entity<AlbumSong>()
+        //        .HasMany(x => x.AlbumId)
+        //        .WithMany(x => x.Song);
+        //}
     }
 }
