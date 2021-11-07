@@ -33,18 +33,24 @@ namespace DataAccess
             Database.EnsureCreated();
         }
 
-        //protected override void OnModelCreating(ModelBuilder builder)
-        //{
-        //    base.OnModelCreating(builder);
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
 
-        //    builder.Entity<Album>()
-        //        .HasOne(x => x.ArtistId)
-        //        .WithMany(x => x.Album)
-        //        .HasForeignKey(x => x.ArtistId);
+            builder.Entity<Album>()
+                .HasOne(x => x.ArtistId)
+                .WithMany(x => x.Album)
+                .HasForeignKey(x => x.ArtistId);
 
-        //    builder.Entity<AlbumSong>()
-        //        .HasMany(x => x.AlbumId)
-        //        .WithMany(x => x.Song);
-        //}
+            builder.Entity<AlbumSong>()
+                .HasMany(x => x.AlbumId)
+                .WithMany(x => x.Song)
+                .HasForeignKey(x => x.AlbumId);
+
+            builder.Entity<AlbumSong>()
+                .HasMany(x => x.SongId)
+                .WithMany(x => x.Album)
+                .HasForeignKey(x => x.SongId);  
+        }
     }
 }
