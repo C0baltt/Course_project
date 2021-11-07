@@ -80,7 +80,6 @@ namespace WebApp.Controllers
                 return BadRequest();
             }
 
-            //userToUpdate.Age = userViewModel.Age.Value;
             userToUpdate.Email = userViewModel.Email;
             userToUpdate.UserName = userViewModel.Email;
             await _userManager.UpdateAsync(userToUpdate);

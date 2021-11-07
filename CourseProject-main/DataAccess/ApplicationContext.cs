@@ -3,13 +3,10 @@ using DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-
-
 namespace DataAccess
 {
     public class ApplicationContext : DbContext
     {
-
         private readonly IServiceProvider _serviceProvider;
 
         public DbSet<Song> Songs { get; set; }

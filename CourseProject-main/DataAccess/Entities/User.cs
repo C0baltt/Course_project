@@ -8,5 +8,7 @@ namespace DataAccess.Entities
     {
         [MaxLength(50)]
         public override string UserName { get; set; }
+
+        public new Guid Id { get; set; }
     }
 }
