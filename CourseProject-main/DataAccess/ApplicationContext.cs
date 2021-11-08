@@ -34,18 +34,23 @@ namespace DataAccess
         {
             base.OnModelCreating(builder);
 
+            builder.Entity<Song>()
+                .HasOne(x => x.Artist)
+                .WithMany(x => x.Song)
+                .HasForeignKey(x => x.ArtistId);
+
             builder.Entity<Album>()
-                .HasOne(x => x.ArtistId)
+                .HasOne(x => x.Artist)
                 .WithMany(x => x.Album)
                 .HasForeignKey(x => x.ArtistId);
 
             builder.Entity<AlbumSong>()
-                .HasMany(x => x.AlbumId)
+                .HasMany(x => x.Album)
                 .WithMany(x => x.Song)
                 .HasForeignKey(x => x.AlbumId);
 
             builder.Entity<AlbumSong>()
-                .HasMany(x => x.SongId)
+                .HasMany(x => x.SongId.ToString().ToUpper())
                 .WithMany(x => x.Album)
                 .HasForeignKey(x => x.SongId);  
         }

@@ -15,7 +15,5 @@ namespace DataAccess.Entities
         public Artist Artist { get; set; }
 
         public int Year { get; set; }
-
-        //TODO class CoverPhoto
     }
 }
