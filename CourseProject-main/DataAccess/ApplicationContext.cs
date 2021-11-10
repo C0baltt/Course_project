@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace DataAccess
 {
-    public class ApplicationContext : DbContext
+    public class ApplicationContext : IdentityDbContext<User> //DbContext
     {
         private readonly IServiceProvider _serviceProvider;
 
@@ -17,9 +17,7 @@ namespace DataAccess
         public DbSet<User> Users { get; set; }
         public DbSet<Album> Albums { get; set; }
 
-        public ApplicationContext(
-            IServiceProvider serviceProvider,
-            DbContextOptions<ApplicationContext> options)
+        public ApplicationContext(IServiceProvider serviceProvider,  DbContextOptions<ApplicationContext> options)
             : base(options)
         {
         }
@@ -29,7 +27,7 @@ namespace DataAccess
         {
             Database.EnsureCreated();
         }
-
+         
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -50,7 +48,7 @@ namespace DataAccess
                 .HasForeignKey(x => x.AlbumId);
 
             builder.Entity<AlbumSong>()
-                .HasMany(x => x.SongId.ToString().ToUpper())
+                .HasMany(x => x.Song)
                 .WithMany(x => x.Album)
                 .HasForeignKey(x => x.SongId);  
         }
