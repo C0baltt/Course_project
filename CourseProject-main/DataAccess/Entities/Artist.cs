@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace DataAccess.Entities
 {
@@ -14,5 +15,9 @@ namespace DataAccess.Entities
 
         [MaxLength(30)]
         public string Country { get; set; }
+
+        public ICollection<Song> Songs { get; set; }
+
+        public ICollection<Album> Albums { get; set; }
     }
 }

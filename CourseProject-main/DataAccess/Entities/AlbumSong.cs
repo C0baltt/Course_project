@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DataAccess.Entities
 {
@@ -11,5 +12,9 @@ namespace DataAccess.Entities
         public Guid SongId { get; set; }
 
         public Song Song { get; set; }
+
+        public ICollection<Song> Songs { get; set; }
+
+        public ICollection<Album> Albums { get; set; }
     }
 }
