@@ -5,10 +5,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.Models.Users;
+using WebApp.www
 
 namespace WebApp.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = ApplicationConstants.Roles.Administrator)]
     public class UsersController : Controller
     {
         private readonly UserManager<User> _userManager;
