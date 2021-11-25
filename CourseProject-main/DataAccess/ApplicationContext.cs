@@ -14,7 +14,7 @@ namespace DataAccess
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<TrackList> TrackLists { get; set; }
-        public DbSet<User> Users { get; set; }
+        public override DbSet<User> Users { get; set; }
         public DbSet<Album> Albums { get; set; }
 
         public ApplicationContext(IServiceProvider serviceProvider,  DbContextOptions<ApplicationContext> options)
@@ -36,6 +36,11 @@ namespace DataAccess
                 .HasOne(x => x.Artist)
                 .WithMany(x => x.Songs)
                 .HasForeignKey(x => x.ArtistId);
+            
+            builder.Entity<Song>()
+                .HasOne(x => x.Genre)
+                .WithMany(x => x.Songs)
+                .HasForeignKey(x => x.Genre);
 
             builder.Entity<Album>()
                 .HasOne(x => x.Artist)
@@ -43,14 +48,30 @@ namespace DataAccess
                 .HasForeignKey(x => x.ArtistId);
 
             builder.Entity<AlbumSong>()
-                .HasMany(x => x.Albums)
+                .HasMany(x => x.Album)
                 .WithMany(x => x.Songs)
-                .HasForeignKey(x => x.AlbumId);
+                .HasForeignKey(x => x.Id);
 
             builder.Entity<AlbumSong>()
-                .HasMany(x => x.Songs)
+                .HasMany(x => x.Song)
                 .WithMany(x => x.Albums)
-                .HasForeignKey(x => x.SongId);
+                .HasForeignKey(x => x.AlbumId);
+
+            builder.Entity<User>()
+                .HasMany(x => x.Songs)
+                .WithOne(x => x.User)
+                .HasForeignKey(x => x.UserId);
+
+            builder.Entity<TrackList>()
+                .HasMany(x => x.Songs)
+                .WithOne(x => x.TrackList)
+                .HasForeignKey(x => x.Id);
+
+            builder.Entity<TrackList>()
+                .HasOne(x => x.User)
+                .WithMany(x => x.TrackLists)
+                .HasForeignKey(x => x.Id);
+            
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-
+using System.Collections.Generic;
+ 
 namespace DataAccess.Entities
 {
     public class Album
@@ -15,5 +16,7 @@ namespace DataAccess.Entities
         public Artist Artist { get; set; }
 
         public int Year { get; set; }
+
+        public ICollection<Song> Songs;
     }
 }

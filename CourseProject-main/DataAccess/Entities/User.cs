@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace DataAccess.Entities
 {
@@ -10,5 +11,9 @@ namespace DataAccess.Entities
         public override string UserName { get; set; }
 
         public new Guid Id { get; set; }
+
+        public ICollection<Song> Songs { get; set; }
+
+        public ICollection<TrackList> TrackLists { get; set; }
     }
 }

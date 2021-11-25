@@ -1,5 +1,5 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace DataAccess.Entities
 {
@@ -9,5 +9,7 @@ namespace DataAccess.Entities
         public string Name { get; set; }
 
         public string AlternateNames { get; set; }
+
+        public ICollection<Song> Songs { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace DataAccess.Entities
 {
@@ -24,5 +25,7 @@ namespace DataAccess.Entities
         public Guid UserId { get; set; }
 
         public User User { get; set; }
+
+        public ICollection<Song> Songs;
     }
 }
