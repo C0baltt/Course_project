@@ -23,4 +23,8 @@
       <_ContentIncludedByDefault Remove="Models\UserAccount\Register.cshtml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include="ApplicationConstants.cs" />
+    </ItemGroup>
+
 </Project>

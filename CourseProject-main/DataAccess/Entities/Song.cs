@@ -21,10 +21,6 @@ namespace DataAccess.Entities
 
         public Album Album { get; set; }
 
-        public Guid UserId { get; set; }
-        
-        public User User { get; set; }
-
         public AlbumSong AlbumSong { get; set; }
 
         public TrackList TrackList { get; set; }

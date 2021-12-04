@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.Models.Users;
-using WebApp.www
+using WebApp.wwwroot;
 
 namespace WebApp.Controllers
 {
@@ -75,7 +75,7 @@ namespace WebApp.Controllers
                 return BadRequest();
             }
 
-            var userToUpdate = await _userManager.FindByIdAsync(userViewModel.Id);
+            var userToUpdate = await _userManager.FindByIdAsync(userViewModel.Id.ToString());
             if (userToUpdate == null)
             {
                 return BadRequest();

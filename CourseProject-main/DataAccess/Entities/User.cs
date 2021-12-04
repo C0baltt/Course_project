@@ -12,8 +12,6 @@ namespace DataAccess.Entities
 
         public new Guid Id { get; set; }
 
-        public ICollection<Song> Songs { get; set; }
-
         public ICollection<TrackList> TrackLists { get; set; }
     }
 }
